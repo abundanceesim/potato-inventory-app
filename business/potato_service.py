@@ -6,8 +6,7 @@ from data_store import DataStore
 class PotatoService:
     """
     This class contains the business logic for the application. It makes use of functions from the 
-    persistence layer which acts as a DAO. File created by Abundance Esim
-
+    persistence layer which acts as a DAO.
     Attributes
     ----------
     dataStore: DataStore
@@ -23,8 +22,6 @@ class PotatoService:
         """
         self.dataStore = DataStore('32100358.csv')
         self.potatoRecordList = []
-        # Modification for Project 3 - Sweet potato record list. 
-        # Project by Abundance Esim
         self.sweetPotatoRecordList = []
 
     def loadCSV(self):
@@ -39,7 +36,6 @@ class PotatoService:
         Display one potato record. The index of the record to be displayed is based
         on the user's input.
         """
-        # Program by Abundance Esim
         try:
             index = int(input('Please enter the index of the potato record to be displayed (1-100): '))
             self.dataStore.displayOne(index, self.potatoRecordList)
@@ -49,7 +45,6 @@ class PotatoService:
     def displayMultiple(self, rowCount):
         """
         Display multiple potato records based on the row count specified by the user. 
-        Written by Abundance Esim.
         :param rowCount: The number of rows to be displayed.
         """
         self.dataStore.displayMultiple(rowCount, self.potatoRecordList)
@@ -62,7 +57,7 @@ class PotatoService:
     
     def displayFormattedList(self):
         """
-        Display formatted sweet potato records from list. Written by Abundance Esim.
+        Display formatted sweet potato records from list.
         """
         self.dataStore.displayAll(self.sweetPotatoRecordList)
         
@@ -156,7 +151,6 @@ class PotatoService:
     def createBarChart(self, x_value, y_value):
         """
         Create a bar chart based on the user's column choices.
-        Written by Abundance Esim
         """
         # list of dictionaries containing menu options and corresponding values
         options = [
@@ -169,8 +163,7 @@ class PotatoService:
         x_column = ''
         y_column = ''
 
-        # the bar chart should only be created if there are two
-        # distinct columns to use. Project by Abundance Esim
+        # the bar chart should only be created if there are two distinct values for x and y
         if (x_value != y_value):
             for optionObj in options:
                 if (x_value == optionObj['option']):

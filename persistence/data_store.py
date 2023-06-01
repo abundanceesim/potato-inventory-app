@@ -11,7 +11,7 @@ class DataStore:
     """
     This class is the equivalent of a DataAccessObject in SQL. It connects directly to the CSV
     file and performs CRUD operations on it. It is used by other layers in the application to 
-    access the CSV file. File created by Abundance Esim.
+    access the CSV file.
 
     Attributes
     ----------
@@ -34,29 +34,23 @@ class DataStore:
         """
         self.file:str = file
         self.potatoList = []
-        # self.sweetPotatoList = []
         self.header = []
         self.column_names = []
         self.csv_data = []
-        # Project by Abundance Esim
         self.sweetPotatoRecordList: SweetPotatoRecord = []
 
     def loadCSV(self):
         """
         This function opens, reads and appends CSV data to the appropriate lists. It
         also creates potato record objects and appends them to the appropriate list.
-        Written by Abundance Esim
         """
         try:    
             with open(self.file, 'r') as csv_file:
                 reader = csv.reader(csv_file)
                 self.header = next(reader)
-                # Program by Abundance Esim
                 potatoRecordList: PotatoRecord = []
-                # sweetPotatoRecordList: SweetPotatoRecord = []
                 lineCount = 1
                 limit = 100
-                # Program by Abundance Esim
                 for line in reader:
                     if lineCount > limit:
                         break
@@ -70,21 +64,17 @@ class DataStore:
                         # Handling null values
                         if (potatoLine[i] == '\'\'') or (not potatoLine[i]):
                             potatoLine[i] = "null"
-                            # Project by Abundance Esim
 
                 for potato in self.potatoList:
-                    # Modifications for Project 3:
                     sweetPotatoObj = SweetPotatoRecord(potato[0], potato[1], potato[2], potato[3], potato[4], potato[5],
                                                        potato[6], potato[7], potato[8], potato[9], potato[10], potato[11],
                                                        potato[12], potato[13], potato[14])
-                    # Program by Abundance Esim
                     self.sweetPotatoRecordList.append(sweetPotatoObj)
 
                     # Create a PotatoRecord object for each row in potatoList
                     potatoObj = PotatoRecord(potato[0], potato[1], potato[2], potato[3], potato[4], potato[5],
                                             potato[6], potato[7], potato[8], potato[9], potato[10], potato[11],
                                             potato[12], potato[13], potato[14])
-                    # Program by Abundance Esim
                     potatoRecordList.append(potatoObj)
 
                 for column in self.header:
@@ -111,7 +101,6 @@ class DataStore:
                 writer.writerow(self.header)
                 for potatoRow in self.csv_data:
                     writer.writerow(potatoRow)
-                # Program by Abundance Esim
         except IOError as err:
             print(err)
 
@@ -231,18 +220,17 @@ class DataStore:
             else:
                 print('Index out of bounds.')
 
-    # Modifications for Practical Project 4 by Abundance Esim
     def createBarChart(self, potatoRecordList: list, x_value:str, y_value:str):
         """
         Create a bar chart from two columns of the user's choice retrieved from the
-        potato record list. Written by Abundance Esim.
+        potato record list.
         :param list potatoRecordList: The list containing data loaded into memory from the
                 CSV file.
         :param str x_value: The column from which values would be taken to populate the x-axis
         :param str y_value: The column from which values would be taken to populate the y-axis
 
         """
-        # Lists to contain x and y values. Written by Abundance Esim
+        # Lists to contain x and y values.
         x_values = [] 
         y_values = []
         # these lists need to contain exactly the same number of values for the 
@@ -253,7 +241,6 @@ class DataStore:
             potato: PotatoRecord
             # based on the x and y values passed as arguments, we can
             # choose which property to get and append them to the two lists
-            # Project by Abundance Esim
             for potato in potatoRecordList:
                 if (x_values.__len__() > 15):
                     break

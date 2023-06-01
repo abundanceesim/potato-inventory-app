@@ -1,44 +1,8 @@
 # potato_record.py by Abundance Esim
 class PotatoRecord:
     """
-    A class to represent a potato record. This class would be used for the instantiation of PotatoRecord objects
-    which would contain records read from the CSV file. File created by Abundance Esim
-
-    Attributes
-    ----------
-    ref_date : int
-        Reference date for the potato
-    geo : str
-        Location where potato is found
-    dguid : str
-        DGUID of potato
-    area_production_value : str
-        Area, production and farm value of potatoes
-    uom : str
-        UOM of potato
-    uom_id : int
-        UOM ID of potato
-    scalar_factor : int
-        Scalar factor for the potato
-    scalar_id : int
-        Scalar ID of the potato
-    vector : str
-        Vector value for the potato
-    coordinate : float
-        Coordinate value of the potato
-    value : float
-        Value of the potato
-    status : str
-        Status of the potato
-    symbol : str
-        Symbol representing the potato
-    terminated : str
-        Date when potato record was terminated
-    decimals : int
-        Decimals of potato values
-
+    A class to represent a potato record. This class would be used for the instantiation of PotatoRecord objects.
     """
-
     def __init__(self,
                  ref_date,
                  geo,
@@ -56,43 +20,6 @@ class PotatoRecord:
                  terminated,
                  decimals
                  ):
-        """
-        Constructs all the necessary attributes for a PotatoRecord object
-
-        Parameters
-        ----------
-        ref_date : int
-            Reference date for the potato
-        geo : str
-            Location where potato is found
-        dguid : str
-            DGUID of potato
-        area_production_value : str
-            Area, production and farm value of potatoes
-        uom : str
-            UOM of potato
-        uom_id : int
-            UOM ID of potato
-        scalar_factor : int
-            Scalar factor for the potato
-        scalar_id : int
-            Scalar ID of the potato
-        vector : str
-            Vector value for the potato
-        coordinate : float
-            Coordinate value of the potato
-        value : float
-            Value of the potato
-        status : str
-            Status of the potato
-        symbol : str
-            Symbol representing the potato
-        terminated : str
-            Date when potato record was terminated
-        decimals : int
-            Decimals of potato values        
-            
-        """         
         self.ref_date = ref_date
         self.geo = geo 
         self.dguid = dguid
@@ -333,12 +260,11 @@ class PotatoRecord:
 
 class SweetPotatoRecord(PotatoRecord):
     """
-    A subclass of PotatoRecord to override the format of a potato record. Created by Abundance Esim.
+    Subclass of PotatoRecord to override the format of a potato record.
     """
     def __repr__(self):
         """
         Overridden method to format string representation of SweetPotatoRecord objects.
-        Written by Abundance Esim.
         """
         return str(self.ref_date) + " ⇒ " + str(self.geo) + " ⇒ " + str(self.dguid) \
             + " ⇒ " + str(self.area_production_value) + " ⇒ " + str(self.uom) + " ⇒ " + str(self.uom_id) + " ⇒ " + \
