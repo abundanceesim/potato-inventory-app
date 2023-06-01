@@ -6,9 +6,8 @@ from potato_service import PotatoService
 
 class PotatoConsoleView:
     """
-    This class is the presentation layer of the application. It displays an interactive
+    Presentation layer of the application. It displays an interactive
     menu where the user can select options and get results based on their choice.
-    File created by Abundance Esim.
 
     Attributes
     ----------
@@ -116,10 +115,8 @@ class PotatoConsoleView:
                 self.deletePotato()
             case self.DISPLAY_ALL:
                 self.displayAll()
-            # Project by Abundance Esim
             case self.DISPLAY_FORMATTED:
                 self.displayFormatted()
-            # Project by Abundance Esim    
             case self.CREATE_BAR_CHART:
                 self.createBarChart()
             case _:
@@ -147,7 +144,6 @@ class PotatoConsoleView:
         try:
             num_of_potatoes = int(input('Enter the number of potato records to be displayed: '))
             if (num_of_potatoes > 1):
-                # Program by Abundance Esim
                 self.potatoService.displayMultiple(num_of_potatoes)
             else:
                 self.potatoService.displayOne()
@@ -180,16 +176,13 @@ class PotatoConsoleView:
 
     def displayFormatted(self):
         """
-        Display all potato records currently available in memory. Written by
-        Abundance Esim
+        Display all potato records currently available in memory. 
         """
         self.potatoService.displayFormattedList()
 
-    # Modifications for Practical Project 4 by Abundance Esim.
     def createBarChart(self):
         """
         Create a bar chart with 2 columns based on users selection from options.
-        Written by Abundance Esim.
         """
         accepted_range = [1, 2, 3, 4]
         try:
